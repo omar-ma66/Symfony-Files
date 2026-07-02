@@ -1,0 +1,44 @@
+{# templates/fichier/new.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un fichier{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title mb-0">Téléverser une brochure</h3>
+                </div>
+                <div class="card-body">
+                    
+                    {# Début du formulaire (gère automatiquement l'enctype pour les fichiers) #}
+                    {{ form_start(form) }}
+
+                        <div class="mb-3">
+                            {# Label du champ #}
+                            {{ form_label(form.nom, null, {'label_attr': {'class': 'form-label fw-bold'}}) }}
+                            
+                            {# Input du fichier avec une classe Bootstrap #}
+                            {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                            
+                            {# Affichage des erreurs spécifiques à ce champ (ex: fichier trop lourd, pas un PDF) #}
+                            <div class="text-danger small mt-1">
+                                {{ form_errors(form.nom) }}
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100">
+                            <i class="fas fa-upload"></i> Envoyer le fichier
+                        </button>
+
+                    {# Fin du formulaire #}
+                    {{ form_end(form) }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

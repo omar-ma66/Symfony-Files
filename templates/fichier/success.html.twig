@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block title %} fichier test {% endblock %}
+
+
+{% block body %}
+
+                    {% for fichier in  data %}
+                      <p> <a href="{{ asset('uploads/brochures/' ~ fichier.nom) }}"> {{fichier.nom}} </a></p>
+                    {% endfor %}
+
+{% endblock %}
